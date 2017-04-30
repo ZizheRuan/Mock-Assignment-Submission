@@ -2,10 +2,21 @@ package com.unimelb.swen30006.workshops;
 
 import java.util.Scanner;
 
-public class Student {
+public class Student extends Person{
 	Scanner scanner = new Scanner(System.in);
+	String name;
+	int ID;
+	String department;
+	File[] personalFileList;
+	public Student(String name, int ID, String department){
+		super(name,ID);
+		this.name = name;
+		this.ID = ID;
+		this.department = department;
+	}
 	
-	public void createFile(){
+	
+	public void createFiles(){
 		
 		int fileNumber = 0;
 		String name;
@@ -13,7 +24,7 @@ public class Student {
 		String type;
 		System.out.println("create file start, input number of files to submit: ");
 		fileNumber = Integer.parseInt(scanner.nextLine());
-		File[] personalFileList = new File[fileNumber];
+		personalFileList = new File[fileNumber];
 		for(int i=1;i<fileNumber+1;i++){
 			System.out.println("create file No."+i+", input file name: ");
 			name = scanner.nextLine();
@@ -22,12 +33,19 @@ public class Student {
 			System.out.println("create file No."+i+", input file type: ");
 			type = scanner.nextLine();
 			File file = new File(name, data, type);
-			personalFileList[i] = file;
+			personalFileList[i-1] = file;
 		}
 	}
 	
-	public void submitAssignment(){
-		
+	
+	public void submitAssignment(Assignment asm){
+		Submission submission = new Submission();
+		if(submission.attempCount<asm.MaxAttempTime){
+			submission.attachFiles(personalFileList);
+			submission.attemp();
+			System.out.println("submit success, this is the attemp No."+submission.attempCount);
+		}
+		else System.out.println("cannot submit, reach submit limit");
 	}
 
 }
