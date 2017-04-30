@@ -13,9 +13,9 @@ public class Test {
 		lecturer.createAssignment("SWEN90038");
 		
 		studentA.createFiles();
-		studentB.submitAssignment(lecturer.getAssignment("SWEN90038","first"));
+		studentA.submitAssignment(lecturer.getAssignment("SWEN90038","first"));
 		
-		studentA.createFiles();
+		studentB.createFiles();
 		studentB.submitAssignment(lecturer.getAssignment("SWEN90038","first"));
 
 	}

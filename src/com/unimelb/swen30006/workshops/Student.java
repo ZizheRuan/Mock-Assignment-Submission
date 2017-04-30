@@ -4,15 +4,18 @@ import java.util.Scanner;
 
 public class Student extends Person{
 	Scanner scanner = new Scanner(System.in);
-	String name;
-	int ID;
-	String department;
-	File[] personalFileList;
+	public String name;
+	public int ID;
+	public String department;
+	public File[] personalFileList;
+	public Submission submission;
+	
 	public Student(String name, int ID, String department){
 		super(name,ID);
 		this.name = name;
 		this.ID = ID;
 		this.department = department;
+		submission = new Submission();
 	}
 	
 	
@@ -22,7 +25,7 @@ public class Student extends Person{
 		String name;
 		String data;
 		String type;
-		System.out.println("create file start, input number of files to submit: ");
+		System.out.println(this.name+" create file start, input number of files to submit: ");
 		fileNumber = Integer.parseInt(scanner.nextLine());
 		personalFileList = new File[fileNumber];
 		for(int i=1;i<fileNumber+1;i++){
@@ -39,13 +42,13 @@ public class Student extends Person{
 	
 	
 	public void submitAssignment(Assignment asm){
-		Submission submission = new Submission();
-		if(submission.attempCount<asm.MaxAttempTime){
+		if(submission.attempCount<=asm.MaxAttempTime){
 			submission.attachFiles(personalFileList);
 			submission.attemp();
 			System.out.println("submit success, this is the attemp No."+submission.attempCount);
 		}
-		else System.out.println("cannot submit, reach submit limit");
+		else 
+			System.out.println("cannot submit, reach submit limit");
 	}
 
 }

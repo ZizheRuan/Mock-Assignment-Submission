@@ -1,7 +1,7 @@
 package com.unimelb.swen30006.workshops;
 
 class Submission {
-	public int attempCount;
+	public int attempCount=0;
 	private File[] files;
     
 	public Submission(){
