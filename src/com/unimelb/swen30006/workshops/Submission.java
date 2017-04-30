@@ -1,10 +1,11 @@
 package com.unimelb.swen30006.workshops;
 
 class Submission {
-	public int attempCount=0;
+	public int attempCount;
 	private File[] files;
     
 	public Submission(){
+		attempCount=0;
 		this.files = new File[0];
 	}
 	

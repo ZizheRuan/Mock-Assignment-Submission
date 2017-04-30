@@ -44,8 +44,14 @@ public class Student extends Person{
 	public void submitAssignment(Assignment asm){
 		if(submission.attempCount<=asm.MaxAttempTime){
 			submission.attachFiles(personalFileList);
+			
+			if(asm.validateSubmission(submission)==null){
+				System.out.println("submit success, this is the attemp No."+submission.attempCount);
+			}
+			else{
+				System.out.println("submit failed, plagrism found, this is the attemp No."+submission.attempCount);
+			}
 			submission.attemp();
-			System.out.println("submit success, this is the attemp No."+submission.attempCount);
 		}
 		else 
 			System.out.println("cannot submit, reach submit limit");
