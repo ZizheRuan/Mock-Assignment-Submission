@@ -1,12 +1,24 @@
 package com.unimelb.swen30006.workshops;
 
-// Sample private submission class to be replaced by your implementation
 class Submission {
-    // Return two fake files
+	public int attempCount;
+	private File[] files;
+    
+	public Submission(){
+		attempCount=0;
+		this.files = new File[0];
+	}
+	
     public File[] includedFiles(){
-        File[] files = new File[2];
-        files[0] = new File();
-        files[1] = new File();
         return files;
     }
+    
+    public void attachFiles(File[] files){
+    		this.files = files;
+    }
+    
+    public void attemp(){
+    		attempCount+=1;
+    }
+    
 }

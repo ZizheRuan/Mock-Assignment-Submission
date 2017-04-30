@@ -4,19 +4,19 @@ public class Test {
 
 	public static void main(String[] args) {
 		Staff lecturer = new Staff("Tio", 111111,"MIT");
-		Student studentA = new Student("JIA","182838","MIT");
-		Student studentB = new Student("YI","48586","MIS");
+		Student studentA = new Student("JIA",182838,"MIT");
+		Student studentB = new Student("YI",48586,"MIS");
 		
 		Subject subjectooo = new Subject("Tio","MIT");
 		
-		lecturer.creatSubject();
-		lecturer.creatAssignment();
+		lecturer.createSubject("Software Modelling","SWEN90038");
+		lecturer.createAssignment("SWEN90038");
 		
-		studentA.createFile();
-		studentB.submitAssignment();
+		studentA.createFiles();
+		studentA.submitAssignment(lecturer.getAssignment("SWEN90038","first"));
 		
-		studentA.createFile();
-		studentB.submitAssignment();
+		studentB.createFiles();
+		studentB.submitAssignment(lecturer.getAssignment("SWEN90038","first"));
 
 	}
 
