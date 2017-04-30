@@ -1,13 +1,13 @@
 package com.unimelb.swen30006.workshops;
 
-// Sample private file class to be replaced by your implementaiton
 class File {
-    public String fileType(){
-        double num = Math.random();
-        if(num<0.5){
-            return "pdf";
-        } else {
-            return "docx";
-        }
-    }
+	public String name;
+	public String data;
+	public String type;
+	public File(String name, String data, String type){
+		this.name = name;
+		this.data = data;
+		this.type = type;
+	}
+	
 }
